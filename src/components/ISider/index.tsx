@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 
 import { Layout, Menu } from 'antd';
-import { Link, useRouteMatch, useLocation } from 'react-router-dom';
+import { Link, useRouteMatch, useLocation, withRouter, RouteComponentProps } from 'react-router-dom';
 import { SIDER_MENUS, Menu as MenuItem } from '../../routes';
 
 import './style.css';
@@ -11,11 +11,10 @@ const { SubMenu } = Menu;
 
 export type ISiderProps = {
   isCollapsed: boolean;
-};
+} & RouteComponentProps;
 
 function ISider(props: ISiderProps) {
   const match = useRouteMatch();
-  const location = useLocation();
 
   const renderMenu = useCallback((menus: MenuItem[]) => {
     return menus.map((menu: MenuItem) => {
@@ -47,7 +46,7 @@ function ISider(props: ISiderProps) {
       <Menu
         mode="inline"
         theme="dark"
-        selectedKeys={[location.pathname]}
+        selectedKeys={[match.path]}
       >
         {renderMenu(SIDER_MENUS)}
       </Menu>
@@ -55,4 +54,4 @@ function ISider(props: ISiderProps) {
   );
 }
 
-export default ISider;
+export default withRouter(ISider);

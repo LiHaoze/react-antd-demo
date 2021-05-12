@@ -17,7 +17,6 @@ function App() {
     <div className="app">
       <Router>
         <Layout className="site-layout">
-          <ISider isCollapsed={isCollapsed} />
           <IHeader isCollapsed={isCollapsed} toggleCollapse={setCollapse} />
           <Layout>
             <Switch>
@@ -26,13 +25,17 @@ function App() {
                   <Route
                     exact
                     path={config.path}
-                    component={(params: any) => (
-                      <>
-                        <Layout.Content className={isCollapsed ? 'collapse wrap-container' : 'wrap-container'}>
-                          {React.createElement(config.component, params)}
-                        </Layout.Content>
-                      </>
-                    )}
+                    component={(params: any) => {
+                      console.log('router params', params);
+                      return (
+                        <>
+                          <ISider isCollapsed={isCollapsed} />
+                          <Layout.Content className={isCollapsed ? 'collapse wrap-container' : 'wrap-container'}>
+                            {React.createElement(config.component, params)}
+                          </Layout.Content>
+                        </>
+                      )
+                    }}
                   />
                 ))
               }

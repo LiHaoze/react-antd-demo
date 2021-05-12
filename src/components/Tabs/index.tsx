@@ -11,10 +11,6 @@ export interface MyTabsProps {
 }
 
 export default function MyTabs(props: MyTabsProps) {
-  const onTabClick = (key: string) => {
-    console.log('key', key);
-  }
-
   return (
     <Tabs defaultActiveKey="1" activeKey={props.activeKey} onTabClick={props.onTabClick}>
       <TabPane tab="Tab 1" key="1">

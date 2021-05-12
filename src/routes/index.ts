@@ -23,7 +23,7 @@ export const ROUTER_PATH = [{
 
 export const SIDER_MENUS: Menu[] = [{
   key: 'parent1',
-  title: 'parent2',
+  title: 'parent1',
   icon: '',
   children: [{
     key: '/page1',
@@ -32,8 +32,8 @@ export const SIDER_MENUS: Menu[] = [{
     path: '/page1'
   }]
 }, {
-  key: '/page2',
+  key: '/page2/:tabId',
   title: 'page2',
   icon: '',
-  path: '/page2'
+  path: '/page2/1'
 }];

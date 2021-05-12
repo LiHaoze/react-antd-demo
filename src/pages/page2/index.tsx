@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { useHistory, useParams, useRouteMatch } from 'react-router-dom';
+import { useHistory, useParams, useRouteMatch, withRouter } from 'react-router-dom';
 
 import Tabs from '../../components/Tabs';
 
-function Page2() {
-  let history = useHistory();
+function Page2(props: any) {
+  const history = useHistory();
   const { tabId } = useParams<{ tabId: string }>();
-  let match = useRouteMatch("/page2/:tabId");
+  const match = useRouteMatch();
 
   const onTabClick = (key: string) => {
     history.push(`/page2/${key}`);
@@ -21,4 +21,4 @@ function Page2() {
   )
 }
 
-export default Page2;
+export default withRouter(Page2);
