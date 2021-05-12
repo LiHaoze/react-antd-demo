@@ -1,12 +1,22 @@
 import React from 'react';
 
 import { Tabs } from 'antd';
+import { } from 'react-router';
 
 const { TabPane } = Tabs;
 
-export default function MyTabs() {
+export interface MyTabsProps {
+  activeKey: string;
+  onTabClick: (key: string) => void;
+}
+
+export default function MyTabs(props: MyTabsProps) {
+  const onTabClick = (key: string) => {
+    console.log('key', key);
+  }
+
   return (
-    <Tabs defaultActiveKey="1">
+    <Tabs defaultActiveKey="1" activeKey={props.activeKey} onTabClick={props.onTabClick}>
       <TabPane tab="Tab 1" key="1">
         Content of Tab Pane 1
       </TabPane>

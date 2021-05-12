@@ -1,12 +1,17 @@
 import React from 'react';
 
+import { withRouter } from 'react-router-dom';
+
 import Tabs from '../../components/Tabs';
 
-export default function Page1() {
+function Page1(props: any) {
+  // console.log('props', props);
   return (
     <>
       <div>page1</div>
-      <Tabs />
+      {/* <Tabs /> */}
     </>
   )
 }
+
+export default withRouter(Page1);

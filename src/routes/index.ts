@@ -16,6 +16,9 @@ export const ROUTER_PATH = [{
 }, {
   path: '/page2',
   component: Page2
+}, {
+  path: '/page2/:tabId',
+  component: Page2
 }];
 
 export const SIDER_MENUS: Menu[] = [{
@@ -23,13 +26,13 @@ export const SIDER_MENUS: Menu[] = [{
   title: 'parent2',
   icon: '',
   children: [{
-    key: 'page1',
+    key: '/page1',
     title: 'page1',
     icon: '',
     path: '/page1'
   }]
 }, {
-  key: 'page2',
+  key: '/page2',
   title: 'page2',
   icon: '',
   path: '/page2'
