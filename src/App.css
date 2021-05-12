@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.ant-layout-content.wrap-container {
+  transition: all .5s;
+  min-height: calc(100vh - 64px);
+  margin-left: 260px;
+  margin-top: 72px;
+  margin-right: 60px;
+}
+
+.wrap-container.ant-layout-content.collapse {
+  margin-left: 60px;
+}

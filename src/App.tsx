@@ -1,24 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Layout } from 'antd';
+import { ROUTER_PATH } from './routes';
+
+import IHeader from './components/IHeader';
+import ISider from './components/ISider';
 import logo from './logo.svg';
+
 import './App.css';
 
 function App() {
+  const [isCollapsed, setCollapse] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Router>
+        <Layout className="site-layout">
+          <ISider isCollapsed={isCollapsed} />
+          <IHeader isCollapsed={isCollapsed} toggleCollapse={setCollapse} />
+          <Layout>
+            <Switch>
+              {
+                ROUTER_PATH.map(config => (
+                  <Route
+                    exact
+                    path={config.path}
+                    component={(params: any) => (
+                      <>
+                        <Layout.Content className={isCollapsed ? 'collapse wrap-container' : 'wrap-container'}>
+                          {React.createElement(config.component, params)}
+                        </Layout.Content>
+                      </>
+                    )}
+                  />
+                ))
+              }
+            </Switch>
+          </Layout>
+        </Layout>
+      </Router>
     </div>
   );
 }

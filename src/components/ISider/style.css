@@ -1,0 +1,42 @@
+/* antd custom styles */
+.sider.ant-layout-sider {
+  margin-top: 12px;
+  border: none;
+  overflow: auto;
+  height: 100vh;
+  position: fixed;
+  left: 0px;
+  margin-top: 64px;
+  z-index: 1;
+  flex: 0 0 250px !important;
+  max-width: 250px !important;
+  min-width: 250px !important;
+  width: 250px !important;
+  transition: all .5s;
+}
+
+.sider.ant-layout-sider.collapse {
+  transform: translateX(-250px)
+}
+
+.sider .ant-layout-sider-children {
+  background: #001529;
+}
+
+.sider.ant-layout-sider.collapse {
+  transform: translateX(-250px)
+}
+
+.sider .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected,
+.sider .ant-menu, .sider.ant-layout-sider,
+.sider .ant-menu-submenu > .ant-menu {
+  background: transparent;
+  border: none;
+}
+
+.sider .ant-menu-vertical .ant-menu-item::after,
+.sider .ant-menu-vertical-left .ant-menu-item::after,
+.sider .ant-menu-vertical-right .ant-menu-item::after,
+.sider .ant-menu-inline .ant-menu-item::after {
+  border: none;
+}
